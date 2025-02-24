@@ -1,0 +1,11 @@
+git
+create repo
+git clone repo-url
+git status
+git log --oneline
+git add . / filename
+git commit -m ''
+git checkout -b branchname
+git merge branchname
+show pr
+-- git rebase
