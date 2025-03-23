@@ -1,0 +1,64 @@
+/* #library + .placeholder:hover {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+
+} */
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: blanchedalmond;
+}
+
+/* div:hover {
+    background-color: yellow;
+
+} */
+
+figure {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder1 ~ figcaption {
+    color: red;
+}
+
+input[type="search"] {
+    height: 150px;
+    background-color: aqua;
+}
+
+
+#library {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 4px;
+}
+
+.caption {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+main {
+    grid-row: 2 / -1;
+
+}
+
+body {
+    display: grid;
+
+    grid-template-rows: 1fr 1fr ;
+
+
+}
+
+/* + ~ > ' ' */
+
+/* # . ''  []*/
