@@ -11,10 +11,16 @@ div {
     background-color: blanchedalmond;
 }
 
+img {
+    width: 100px;
+    height: 100px;
+}
+
 /* div:hover {
     background-color: yellow;
 
 } */
+
 
 figure {
     max-width: 100px;
@@ -22,6 +28,9 @@ figure {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100px;
+    margin: 0;
+    padding: 10px;
 }
 
 .placeholder1 ~ figcaption {
@@ -54,7 +63,7 @@ main {
 body {
     display: grid;
 
-    grid-template-rows: 1fr 1fr ;
+    grid-template-rows: auto auto;
 
 
 }
