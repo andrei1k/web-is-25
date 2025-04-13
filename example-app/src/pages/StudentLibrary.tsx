@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import StudentCard from "../component/StudentCard"
 
 export type Student = {
@@ -35,10 +35,47 @@ export default function StudentLibrary() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setStudents(prevState => [...prevState, {id: prevState.length + 1, name, age: age ?? 0}])
-        setAge(undefined)
-        setName('')
+        // setStudents(prevState => [...prevState, {id: prevState.length + 1, name, age: age ?? 0}])
+        // setAge(undefined)
+        // setName('')
+        addStudent(students.length + 1, name, age?? 0)
     }
+
+    const getStudent = async () => {
+
+        const studentsServer = await fetch('http://localhost:3001/student')
+        const response = await studentsServer.json()
+        setStudents(response)
+    }
+
+    const addStudent = async (id: number, name: string, age: number) => {
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+        "id": id,
+        "name": name,
+        "age": age
+        });
+
+        const requestOptions: RequestInit = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        };
+
+        await fetch("http://localhost:3001/student", requestOptions);
+        await getStudent()
+
+        // const studentsServer = await fetch('http://localhost:3001/student')
+        // const response = await studentsServer.json()
+        // setStudents(response)
+    }
+
+    useEffect(() => {
+        getStudent()
+    }, [])
 
     return (
         <>
