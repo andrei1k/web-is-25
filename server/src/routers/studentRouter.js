@@ -35,6 +35,8 @@ studentRouter.get('/', (req, res) => {
     //     return
     // }
 
+    console.log(req.user);
+
     res.status(200).json(students)
 
 })
